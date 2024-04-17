@@ -63,3 +63,24 @@ plt.show()
 
 corr_matrix = strat_train_set.corr(method="pearson",numeric_only=True)
 print(corr_matrix["median_house_value"].sort_values(ascending=False))
+pd.plotting.scatter_matrix(housing)
+print(housing)
+plt.show()
+attribute =  ["median_house_value","median_income","total_rooms","housing_median_age"]
+pd.plotting.scatter_matrix(housing[attribute])
+print(housing)
+plt.show()
+
+# lets focus zoom in on two attribute that seems to have some corelation 
+
+housing.plot(kind="scatter",x="median_income",y="median_house_value",alpha=0.1)
+plt.show()
+
+# experimenting with attribute combinations
+housing["rooms_per_household"] = housing["total_rooms"]/housing["households"]
+housing["bedrooms_per_room"] = housing["total_bedrooms"]/housing["total_rooms"]
+housing["population_per_household"] = housing["population"]/housing["households"]
+
+corr_matrix = housing.corr(method="pearson",numeric_only=True)
+
+print(corr_matrix["median_house_value"].sort_values(ascending=False))
