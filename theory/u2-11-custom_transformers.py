@@ -4,6 +4,8 @@ from sklearn.base import BaseEstimator, TransformerMixin
 import numpy as np
 import os
 import pandas as pd
+from sklearn.preprocessing import StandardScaler
+ 
 
 file_path = os.path.join("datasets","housing","housing.csv")
 
@@ -28,4 +30,28 @@ class CombinedAttributesAdder(BaseEstimator ,TransformerMixin):
 attr_adder = CombinedAttributesAdder(add_bedtooms_per_room= True)
 housing_extra_attribs = attr_adder.transform(housing.values)
 print(housing_extra_attribs.shape)
-print(housing_extra_attribs)
+print(housing_extra_attribs[0])
+print(housing.head())
+
+print(housing.columns)
+new_housing=housing.drop(['ocean_proximity'], axis=1)
+
+
+
+
+
+# Normalization X scaled = (Xi - Xmean)/(Xmax - Xmin)
+# Min-Max Scaling X scale = (Xi - Xmin)/(Xmax - Xmin)
+# Absolute Maximum Scaling  = (Xi - max(|X|)/max(|X|)
+
+new_housing=housing.drop(['ocean_proximity'], axis=1)
+print(new_housing.head())
+scaler = StandardScaler()
+scaled_data = scaler.fit_transform(pd.DataFrame(new_housing))
+
+scaled_df = pd.DataFrame(scaled_data,
+                         columns=['longitude', 'latitude', 'housing_median_age', 'total_rooms',
+       'total_bedrooms', 'population', 'households', 'median_income',
+       'median_house_value'])
+print(scaled_df.head())
+print(scaled_data)
