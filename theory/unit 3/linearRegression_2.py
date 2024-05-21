@@ -74,7 +74,7 @@ print("mean absolute error",mean_absolute_error(strat_train_set_labels,housing_p
 from sklearn.linear_model import Lasso
 
 # ridgemodel = Lasso(alpha=10).fit(strat_train_set,strat_train_set_labels)
-ridgemodel = Lasso(alpha=10,max_iter=100000).fit(strat_train_set,strat_train_set_labels)
+ridgemodel = Lasso(alpha=10,max_iter=10000).fit(strat_train_set,strat_train_set_labels)
 
 housing_prediction  = ridgemodel.predict(strat_train_set)
 print("Lasso model coeff :",ridgemodel.coef_)
@@ -88,3 +88,4 @@ print("RMSE for linear regression",lin_rmse)
 
 print("#####################################")
 print("mean absolute error",mean_absolute_error(strat_train_set_labels,housing_prediction))  
+print(" number of features used are :",np.sum(ridgemodel.coef_ !=0))
