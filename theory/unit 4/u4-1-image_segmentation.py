@@ -1,4 +1,4 @@
-from sklearn.cluster import KMeans
+ from sklearn.cluster import KMeans
 from matplotlib.image import imread
 import matplotlib.pyplot as plt
 
