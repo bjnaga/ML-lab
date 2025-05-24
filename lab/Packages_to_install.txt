@@ -1,1 +1,1 @@
-pip install numpy pandas matplotlib nltk opencv-python scikit-learn
+pip install numpy pandas matplotlib nltk opencv-python scikit-learn openpyxl
