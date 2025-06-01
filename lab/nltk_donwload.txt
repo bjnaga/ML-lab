@@ -1,0 +1,15 @@
+# inside python interpreter copy and paste every line and execute
+
+import nltk
+nltk.download('words')
+
+nltk.download('stopwords')
+nltk.download('punkt_tab')
+nltk.download('averaged_perceptron_tagger_eng')
+nltk.download('maxent_ne_chunker_tab')
+
+# https://www.nltk.org/api/nltk.tokenize.punkt.html
+# nltk.download('punkt') # Punkt Sentence Tokenizer
+
+# https://www.nltk.org/api/nltk.tag.perceptron.html
+# nltk.download('averaged_perceptron_tagger')
